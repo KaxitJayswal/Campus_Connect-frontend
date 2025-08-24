@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Set the base URL to your production backend
 const api = axios.create({
-  baseURL: 'https://campus-connect-backend.onrender.com'
+  baseURL: ' https://campus-connect-backend-xrtz.onrender.com'
 });
 
 api.interceptors.request.use((config) => {
