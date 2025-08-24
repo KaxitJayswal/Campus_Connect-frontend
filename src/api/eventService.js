@@ -1,22 +1,20 @@
 import api from './api'; // Import the new api instance
 
-const API_URL = '/api/events/';
-
 // Updated getEvents function
 const getEvents = async (params = {}) => {
-  const response = await api.get(API_URL, { params });
+  const response = await api.get('/api/events', { params });
   return response.data;
 };
 
 // New function to create an event
 const createEvent = async (eventData) => {
-  const response = await api.post(API_URL, eventData);
+  const response = await api.post('/api/events', eventData);
   return response.data;
 };
 
 // Get single event by ID
 const getEventById = async (id) => {
-  const response = await api.get(API_URL + id);
+  const response = await api.get(`/api/events/${id}`);
   return response.data;
 };
 
