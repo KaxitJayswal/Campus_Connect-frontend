@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const api = axios.create();
+// Set the base URL to your production backend
+const api = axios.create({
+  baseURL: 'https://campus-connect-backend.onrender.com'
+});
 
 api.interceptors.request.use((config) => {
   const token = JSON.parse(localStorage.getItem('userToken'));
