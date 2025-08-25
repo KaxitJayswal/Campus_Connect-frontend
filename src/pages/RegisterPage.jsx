@@ -8,14 +8,14 @@ function RegisterPage() {
     email: '',
     password: '',
     college: '',
-    role: 'student', // Default role
+    // Role is now determined by the backend
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const { name, email, password, college, role } = formData;
+  const { name, email, password, college } = formData;
 
   const handleChange = (e) => {
     setFormData((prevState) => ({
@@ -68,12 +68,8 @@ function RegisterPage() {
           <label className="block text-gray-300 mb-2" htmlFor="college">College</label>
           <input type="text" name="college" value={college} onChange={handleChange} required className="w-full p-3 bg-gray-700 text-white rounded border border-gray-600 focus:outline-none focus:border-indigo-500" />
         </div>
-        <div className="mb-6">
-          <label className="block text-gray-300 mb-2">Register as</label>
-          <select name="role" value={role} onChange={handleChange} className="w-full p-3 bg-gray-700 text-white rounded border border-gray-600 focus:outline-none focus:border-indigo-500">
-            <option value="student">Student</option>
-            <option value="organizer">Event Organizer</option>
-          </select>
+        <div className="mb-2 text-gray-400 text-sm">
+          <p>All users register as students. You can apply to become an organizer later from your dashboard.</p>
         </div>
         <button
           type="submit"

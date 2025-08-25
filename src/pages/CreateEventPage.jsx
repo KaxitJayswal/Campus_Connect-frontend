@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import eventService from '../api/eventService';
+import { useAuth } from '../context/AuthContext';
 
 function CreateEventPage() {
+  const { user } = useAuth();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -13,6 +15,24 @@ function CreateEventPage() {
   });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  // Check if user is not an organizer
+  if (user && user.role !== 'organizer') {
+    return (
+      <div className="text-center text-white">
+        <h1 className="text-4xl font-bold mb-4">Access Denied</h1>
+        <p className="text-gray-400 text-lg mb-6">Only approved organizers can create events.</p>
+        {user.role === 'student' && user.organizerStatus === 'none' && (
+          <button 
+            onClick={() => navigate('/my-events')}
+            className="bg-indigo-600 text-white font-bold py-2 px-4 rounded"
+          >
+            Apply to become an organizer
+          </button>
+        )}
+      </div>
+    );
+  }
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

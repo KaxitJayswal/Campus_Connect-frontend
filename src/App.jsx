@@ -14,6 +14,8 @@ import OrganizerDashboard from './pages/OrganizerDashboard';
 import EditEventPage from './pages/EditEventPage';
 import NotFoundPage from './pages/NotFoundPage';
 import StudentDashboard from './pages/StudentDashboard';
+import AdminDashboard from './pages/AdminDashboard';
+import ApplyOrganizerPage from './pages/ApplyOrganizerPage';
 
 function App() {
   return (
@@ -63,6 +65,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <StudentDashboard />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin" 
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/apply-organizer" 
+            element={
+              <ProtectedRoute>
+                <ApplyOrganizerPage />
               </ProtectedRoute>
             } 
           />

@@ -22,13 +22,24 @@ function Navbar() {
             <>
               {/* --- THIS IS THE NEW LOGIC --- */}
               {user.role === 'student' && (
-                <Link to="/my-events" className="hover:text-gray-300">My Events</Link>
+                <>
+                  <Link to="/my-events" className="hover:text-gray-300">My Events</Link>
+                  {user.organizerStatus === 'none' && (
+                    <Link to="/apply-organizer" className="text-yellow-300 hover:text-yellow-200">Apply to Be Organizer</Link>
+                  )}
+                  {user.organizerStatus === 'pending' && (
+                    <span className="text-yellow-500">Application Pending</span>
+                  )}
+                </>
               )}
               {user.role === 'organizer' && (
                 <>
                   <Link to="/organizer-dashboard" className="hover:text-gray-300">My Dashboard</Link>
                   <Link to="/create-event" className="hover:text-gray-300">Create Event</Link>
                 </>
+              )}
+              {user.role === 'admin' && (
+                <Link to="/admin" className="hover:text-gray-300">Admin Dashboard</Link>
               )}
               <button onClick={handleLogout} className="bg-indigo-600 px-4 py-2 rounded hover:bg-indigo-500">
                 Logout

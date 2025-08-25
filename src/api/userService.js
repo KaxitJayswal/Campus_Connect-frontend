@@ -15,10 +15,16 @@ const unsaveEvent = async (eventId) => {
     return response.data;
 };
 
+const applyToBeOrganizer = async () => {
+    const response = await api.post('/api/users/me/apply-organizer');
+    return response.data;
+};
+
 const userService = {
     getMyProfile,
     saveEvent,
     unsaveEvent,
+    applyToBeOrganizer
 };
 
 export default userService;
