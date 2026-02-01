@@ -42,7 +42,7 @@ function AdminDashboard() {
           delete newStatus[userId];
           return newStatus;
         });
-      }, 1500);
+      }, 1000);
     } catch (err) {
       setActionStatus((prev) => ({ ...prev, [userId]: 'error' }));
       console.error(err);
@@ -62,7 +62,7 @@ function AdminDashboard() {
           delete newStatus[userId];
           return newStatus;
         });
-      }, 1500);
+      }, 1000);
     } catch (err) {
       setActionStatus((prev) => ({ ...prev, [userId]: 'error' }));
       console.error(err);
