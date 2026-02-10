@@ -20,19 +20,19 @@ const getEventById = async (id) => {
 
 // Get events for the logged-in user
 const getMyEvents = async () => {
-  const response = await api.get(API_URL + 'myevents');
+  const response = await api.get('/api/events/myevents');
   return response.data;
 };
 
 // Update an event
 const updateEvent = async (id, eventData) => {
-  const response = await api.put(API_URL + id, eventData);
+  const response = await api.put(`/api/events/${id}`);
   return response.data;
 };
 
 // Delete an event
 const deleteEvent = async (id) => {
-  const response = await api.delete(API_URL + id);
+  const response = await api.delete(`/api/events/${id}`);
   return response.data;
 };
 

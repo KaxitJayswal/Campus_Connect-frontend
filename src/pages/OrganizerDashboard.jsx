@@ -37,6 +37,8 @@ function OrganizerDashboard() {
 
     return (
         <div className="max-w-7xl mx-auto">
+        {console.log()
+        }
             <h1 className="text-4xl font-bold text-white mb-8">My Events Dashboard</h1>
             <div className="bg-gray-800 rounded-lg shadow-lg p-6">
                 {myEvents.length > 0 ? (
