@@ -26,7 +26,7 @@ const getMyEvents = async () => {
 
 // Update an event
 const updateEvent = async (id, eventData) => {
-  const response = await api.put(`/api/events/${id}`);
+  const response = await api.put(`/api/events/${id}`, eventData);
   return response.data;
 };
 
